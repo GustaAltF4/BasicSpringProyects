@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        html{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #8abbd6;
+        }
+        .error {
+            color: red;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        footer{
+            background-color: #333;
+            color: white;
+            text-align: right;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 96%;
+        }
+
+        a{
+
+            text-decoration: none;
+            color:  #4CAF50;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        a:hover{
+            color: black;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Contenido principal de la página</h1>
+</div>
+
+
+<footer>
+    <a th:if="${adminLink}" th:href="${adminLink}">Area de administración</a><br>
+    <a th:href="@{/logout}">Logout</a>
+</footer>
+
+
+</body>
+</html>

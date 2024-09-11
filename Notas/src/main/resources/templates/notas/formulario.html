@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<!--Este fragmento de código HTML está usando Thymeleaf, un motor de plantillas para Java.
+Thymeleaf se utiliza para generar contenido HTML dinámico basado
+ en los datos del modelo proporcionados por el controlador.-->
+<body>
+    <div class="conteiner">
+
+        <h1 th:text="${nota.id == null ? 'Crear Nota' : 'Editar Nota'}"></h1>
+        <form th:action="@{/notas/guardar}" th:object="${nota}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <label for="titulo">Titulo:</label><br>
+            <input type="text"  id="titulo" th:field="*{titulo}"/>
+            <br>
+            <label for="contenido">Contenido:</label><br>
+            <textarea id="contenido" th:field="*{contenido}"></textarea>
+            <br>
+            <input type="submit" value="Guardar"/>
+        </form>
+        <a href="/notas">Volver</a>
+    </div>
+</body>
+</html>

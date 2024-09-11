@@ -1,0 +1,76 @@
+html{
+    background-color: rgb(42, 39, 39);
+    color: antiquewhite;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+.container{
+    display:flex;
+    text-align:center;
+    justify-content:center;
+    flex-direction:column;
+    margin: 100px;
+}
+footer{
+    margin: 100px;
+    text-align:right;
+}
+input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+input[type="button"],button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    width: 200px;
+    background-color: rgb(65, 100, 158);
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition:0.6s ease;
+    
+
+}
+input[type="button"]:hover ,button:hover{
+    background-color:rgb(48, 68, 155) ;
+}
+
+input[type="text"],input[type="password"],textarea{
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+    color: rgb(48, 71, 176);
+    transition:0.6s ease;
+    cursor: pointer;
+}
+a:hover{
+    color:rgb(78, 124, 183) ;
+}
+.lista {
+    background-color: #dff0d8; /* Cambia el color de fondo */
+    font-weight: bold; /* Cambia el peso de la fuente */
+    color: black;
+    border-radius: 8px;
+     border-bottom-right-radius: 8px;
+
+}
+.lista td:first-child {
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.lista td:last-child {
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+
+
+
+

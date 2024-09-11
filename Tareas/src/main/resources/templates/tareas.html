@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Lista de Tareas</h1>
+    <!--<a href="/tareas/new">Nueva Tarea</a>-->
+    <input type="button" onclick="location.href='/tareas/new';" value="Nueva Tarea">
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha de Creación</th>
+            <th>Completada</th>
+            <th>Acciones</th>
+        </tr>
+        <tr th:each="tarea : ${tareas}" class="lista">
+            <td th:text="${tarea.titulo}"></td>
+            <td th:text="${tarea.description}"></td>
+            <td th:text="${tarea.fechaCreacion}"></td>
+            <td th:text="${tarea.completada ? 'Sí' : 'No' }"></td>
+            <td>
+                <a th:href="@{/tareas/edit/{id}(id=${tarea.id})}">Editar</a><br>
+                <a th:href="@{/tareas/borrar/{id}(id=${tarea.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<footer>
+    <a th:href="@{/logout}">Logout</a>
+</footer>
+</body>
+
+</html>

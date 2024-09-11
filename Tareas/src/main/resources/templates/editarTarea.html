@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Tarea</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editar Tarea</h1>
+        <form th:action="@{/tareas/actualizar/{id}(id=${tarea.id})}" th:object="${tarea}" method="post">
+            <label>Título:</label><br>
+            <input type="text" th:field="*{titulo}"/><br>
+            <label>Descripción:</label><br>
+            <textarea th:field="*{description}"></textarea><br>
+            <label>Fecha de Creación:</label><br>
+            <input type="date" th:field="*{fechaCreacion}" /><br>
+            <label>Completada:</label>
+            <input type="checkbox" th:field="*{completada}"/><br>
+            <button type="submit">Actualizar</button><br>
+        </form>
+        <a href="/tareas">Volver a la lista</a>
+
+    </div>
+  
+</body>
+</html>

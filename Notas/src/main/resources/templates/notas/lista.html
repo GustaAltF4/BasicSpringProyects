@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Notas</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    
+    <div class="conteiner">
+        <h1>Notas</h1>
+        <a href="/notas/crear">Crear Nota Nueva</a>
+         <ul>
+            <li th:each="nota:${notas}">
+                <h2 th:text="${nota.titulo}">Titulo</h2>
+                <p th:text="${nota.contenido}">Contenido de la Nota</p>
+                <p th:text="${nota.fechaCreacion}">Fecha de Creación</p>
+                <a th:href="@{/notas/editar/{id}(id=${nota.id})}">Editar</a>
+                <a th:href="@{/notas/borrar/{id}(id=${nota.id})}" onclick="return confirm('¿Estas Seguro??')">Borrar</a>
+
+
+            </li>
+
+         </ul>
+
+    </div>
+
+</body>
+</html>

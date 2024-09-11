@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pkmn Buscador</title>
+    <style>
+        html{
+            font-family: Helvatica, sans-serif;
+            color: #d9e203;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        input[type="text"]{
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"]{
+            padding: 5px 10px;
+            border-radius: 15px;
+            border: solid 1px;
+            background-color: #196b98;
+            color: #d9e203;
+            cursor: pointer;
+            transition: background-color 0.6s ease;
+        }
+        button:hover{
+            background-color: #093f5d;
+        }
+        body{
+            background-color: #0965a1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Buscador de
+            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="Logo de Pokémon" style="width: 200px;"/>
+        </h1>
+        <form action="/buscar" method="get">
+            <input type="text" name="nombre" placeholder="Nombre del Pokémon" >
+            <button type="submit">Buscar</button>
+        </form>
+        <div th:if="${pokemon}">
+            <h2 th:text="${pokemon.name} + ' (' + ${pokemon.id} + ')'">Nombre del Pokémon</h2>
+            <img th:src="${pokemon.sprites.front_default}" alt="Imagen del Pokemon">
+            <p><strong>Altura:</strong> <span th:text="${pokemon.height}">Altura</span></p>
+            <p><strong>Peso:</strong> <span th:text="${pokemon.weight}">Peso</span></p>
+
+        </div>
+        <div th:if="${error}">
+            <p style="color:red" th:text="${error}">Mensaje de error</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

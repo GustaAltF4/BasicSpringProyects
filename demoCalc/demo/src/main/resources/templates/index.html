@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #243e45;
+        }
+        .contenedor{
+            display: flex;
+            justify-content: center;  /* Centra horizontalmente */
+            align-items: center;      /* Centra verticalmente */
+            height: 100vh;
+        }
+
+        input[readonly] {
+            background-color: #5c7d86;
+            border: none;
+            width: 275px;
+            padding: 10px;
+            font-size: 1.2em;
+        }
+        button {
+            margin: 5px;
+            width: 60px;      /* Ancho del botón */
+            height: 50px;      /* Alto del botón */
+            font-size: 16px;   /* Tamaño de la fuente */
+            padding: 10px;     /* Espaciado interno */
+            background-color: #33bae0; /* Color de fondo */
+            color: white;      /* Color del texto */
+            border: none;      /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer;   /* Cambia el cursor al pasar por encima */
+        }
+        button:hover {
+            background-color: #0c6e8a; /* Color de fondo al pasar el cursor */
+        }
+    </style>
+</head>
+<body>
+<div class="contenedor">
+    <!-- Campo de texto que no puede ser editado directamente -->
+
+    <form id="calcForm" action="/submit" method="post">
+        <input type="text" id="inputField" name="inputField" readonly th:value="${result}" />
+        <div>
+            <button type="button" onclick="setText('7')">7</button>
+            <button type="button" onclick="setText('8')">8</button>
+            <button type="button" onclick="setText('9')">9</button>
+            <button type="button" onclick="setText('/')">%</button>
+        </div>
+        <div>
+            <button type="button" onclick="setText('4')">4</button>
+            <button type="button" onclick="setText('5')">5</button>
+            <button type="button" onclick="setText('6')">6</button>
+            <button type="button" onclick="setText('*')">x</button>
+        </div>
+        <div>
+            <button type="button" onclick="setText('1')">1</button>
+            <button type="button" onclick="setText('2')">2</button>
+            <button type="button" onclick="setText('3')">3</button>
+            <button type="button" onclick="setText('-')">-</button>
+        </div>
+        <div>
+            <button type="button" onclick="limpiarInput()">C</button>
+            <button type="button" onclick="setText('0')">0</button>
+            <button type="button" onclick="submitForm()">=</button>
+            <button type="button" onclick="setText('+')">+</button>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+<script>
+    function setText(value) {
+           var inputField = document.getElementById('inputField');
+           inputField.value += value; // Agrega el valor al campo de entrada
+       }
+
+       function limpiarInput() {
+           var inputField = document.getElementById('inputField');
+           inputField.value = ''; // Limpia el campo de entrada
+       }
+
+       function submitForm() {
+           document.getElementById('calcForm').submit(); // Envía el formulario
+       }
+</script>
+</body>
+</html>

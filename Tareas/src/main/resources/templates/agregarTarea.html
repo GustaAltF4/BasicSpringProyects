@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nueva Tarea</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Nueva Tarea</h1>
+        <form th:action="@{/tareas}" th:object="${tarea}" method="post">
+            <label>Título:</label><br>
+            <input type="text" th:field="*{titulo}"/><br>
+            <label>Descripción:</label><br>
+            <textarea th:field="*{description}"></textarea><br>
+            <label>Fecha de Creación:</label><br>
+            <input type="date" th:field="*{fechaCreacion}" /><br>
+            <label>Completada?:</label>
+            <input type="checkbox" th:field="*{completada}" /><br>
+            <button type="submit">Guardar</button>
+        </form>
+        <a href="/tareas">Volver a la lista</a> 
+
+    </div>
+    
+  
+</body>
+</html>
